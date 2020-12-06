@@ -10,6 +10,8 @@
   --light-bakground-color: #f5f4fa;
   --dark-background-color: #2f303a;
   --light-address-link-color: rgba(255, 255, 255, 0.6);
+  --hero-bg-color: #c4c4c4;
+  --socials-icon-light-color: #afb1b8;
 }
 
 body {
@@ -96,6 +98,34 @@ p {
   text-align: center;
 }
 
+.socials-list {
+  display: flex;
+  justify-content: center;
+}
+
+.socials-list-item:not(:last-child) {
+  margin-right: 10px;
+}
+
+.socials-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+
+.socials-link:hover,
+.socials-link:focus {
+  background-color: var(--accent-color);
+}
+
+.socials-link:hover .socials-link-icon,
+.socials-link:focus .socials-link-icon {
+  fill: var(--light-theme-color);
+}
+
 /* ======= STUDIO ======= */
 
 /* Navigation */
@@ -162,7 +192,8 @@ p {
 }
 
 .contact-info-link {
-  display: block;
+  display: flex;
+  align-items: center;
   padding-top: 32px;
   padding-bottom: 32px;
 
@@ -174,10 +205,22 @@ p {
   color: var(--secondary-text-color);
 }
 
+.contact-info-icon {
+  margin-right: 10px;
+  fill: currentColor;
+}
+
 /* Hero */
 
 .hero {
-  background-color: var(--dark-background-color);
+  background-color: var(--hero-bg-color);
+  background-image: linear-gradient(
+      rgba(47, 48, 58, 0.4),
+      rgba(47, 48, 58, 0.4)
+    ),
+    url(../images/hero/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   text-align: center;
 }
 
@@ -217,6 +260,16 @@ p {
 }
 
 /* Features */
+.feature-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 270px;
+  height: 120px;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  background-color: var(--light-bakground-color);
+}
 
 .features-list {
   display: flex;
@@ -271,7 +324,7 @@ p {
 .team-text-container {
   display: inline-block;
   min-width: 270px;
-  padding: 30px 60px;
+  padding: 30px 32px;
   border-radius: 0px 0px 4px 4px;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   text-align: center;
@@ -292,25 +345,77 @@ p {
 }
 
 .team-description {
+  margin-bottom: 16px;
   font-size: 16px;
   line-height: 1.187;
 
   color: var(--secondary-text-color);
 }
 
-/* Address */
+.socials-link-icon.socials-light-theme {
+  fill: var(--socials-icon-light-color);
+}
+
+/* Clients */
+
+.clients-list {
+  display: flex;
+  justify-content: center;
+}
+
+.clients-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 170px;
+  height: 90px;
+  border: 1px solid var(--socials-icon-light-color);
+  border-radius: 4px;
+  /* margin-right: 30px; */
+}
+
+.clients-list-item:not(:last-child) {
+  margin-right: 30px;
+}
+
+.clients-icon {
+  fill: var(--socials-icon-light-color);
+}
+
+.clients-link:hover,
+.clients-link:focus {
+  border-color: var(--accent-color);
+}
+
+.clients-link:hover .clients-icon,
+.clients-link:focus .clients-icon {
+  fill: var(--accent-color);
+}
+
+/* Footer Info */
+
+.footer-container {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: var(--dark-background-color);
+}
+
+.footer-container-info {
+  display: flex;
+}
+.footer-contacts {
+  margin-right: 70px;
+}
+
+.footer-socials {
+  padding-top: 10px;
+}
 
 footer .logo {
   display: inline-block;
   margin-bottom: 20px;
   margin-right: 0;
   padding: 0;
-}
-
-.address {
-  padding-top: 60px;
-  padding-bottom: 60px;
-  background-color: var(--dark-background-color);
 }
 
 .logo-dark {
@@ -324,14 +429,32 @@ footer .logo {
   color: var(--light-address-link-color);
 }
 
-.address-link:hover,
+/* .address-link:hover,
 .address-link:focus {
   color: var(--light-theme-color);
   scroll-behavior: smooth;
+} */
+
+.address-link.light-theme {
+  color: var(--light-theme-color);
 }
 
 .address-list-item:not(:last-child) {
   margin-bottom: 9px;
+}
+
+.call-to-action {
+  display: block;
+  margin-bottom: 20px;
+  color: var(--light-theme-color);
+}
+
+footer .socials-link {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.socials-link-icon.socials-dark-theme {
+  fill: var(--light-theme-color);
 }
 
 /* ======= STUDIO END ======= */
@@ -385,6 +508,12 @@ footer .logo {
 
 .projects-list-item:nth-last-child(-n + 3) {
   margin-bottom: 0;
+}
+
+.projects-list-item:hover,
+.projects-list-item:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .projects-text-container {
